@@ -5,6 +5,10 @@ GridTile createTile(obj) {
   final String tileTitle = obj.name;
   final String tileSubtitle = obj.sciName;
   return GridTile(
+    child: GestureDetector(
+      onTap: () {
+        print('tabbed');
+      },
       child: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -13,15 +17,6 @@ GridTile createTile(obj) {
               fit: BoxFit.cover),
         ),
       ),
-      footer: GridTileBar(
-        backgroundColor: Colors.lime,
-        title: Text(tileTitle),
-        subtitle: Text(tileSubtitle),
-        trailing: IconButton(
-          icon: Icon(Icons.info),
-          onPressed: () {
-            print('pressed from Tile');
-          },
-        ),
-      ));
+    ),
+  );
 }
